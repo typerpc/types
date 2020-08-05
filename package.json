@@ -1,0 +1,15 @@
+{
+  "name": "@typerpc/types",
+  "version": "1.0.0",
+  "description": "type system for typerpc framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["typescript", "rpc", "framewerk", "typerpc", "generator"],
+  "author": "Gary Becks",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.9.7"
+  }
+}
