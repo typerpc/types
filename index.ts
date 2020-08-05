@@ -3,34 +3,29 @@
 *
  */
 
-export type bool = boolean
-export type int8 = number
-export type uint8 = number
-export type int16 = number
-export type uint16 = number
-export type int32 = number
-export type uint32 = number
-export type float32 = number
-export type float64 = number
-export type nil = null
-export type str = string
-export type error = Error
+
+export type Bool = boolean & {readonly brand: unique symbol}
+export type Int8 = number & {readonly brand: unique symbol}
+export type Uint8 = number & {readonly brand: unique symbol}
+export type Int16 = number & {readonly brand: unique symbol}
+export type Uint16 = number & {readonly brand: unique symbol}
+export type Int32 = number & {readonly brand: unique symbol}
+export type Uint32 = number & {readonly brand: unique symbol}
+export type Float32 = number & {readonly brand: unique symbol}
+export type Float64 = number & {readonly brand: unique symbol}
+export type Null = null & {readonly brand: unique symbol}
+export type String = string & {readonly brand: unique symbol}
+export type Err = Error & {readonly brand: unique symbol}
 // will actually be any in generated typescript code
-export type dynamic = unknown
-export type timestamp = Date
-export type blob = Uint8Array
-export type map<T extends RpcType = dynamic,S extends RpcType = dynamic> = Map<T,S>
-export type tuple2<T extends RpcType = dynamic,X extends RpcType = dynamic> = [T,X]
-export type tuple3<T extends RpcType = dynamic,R extends RpcType = dynamic,S extends RpcType = dynamic> = [T,R,S]
-export type tuple4<T extends RpcType = dynamic,R extends RpcType = dynamic,S extends RpcType = dynamic, U extends RpcType = dynamic> = [T,R,S, U]
-export type tuple5<T extends RpcType = dynamic,R extends RpcType = dynamic,S extends RpcType = dynamic ,U extends RpcType = dynamic,V extends RpcType = dynamic> = [T,R,S,U,V]
-export type list<T extends RpcType = dynamic> = Array<T>
+export type Any = unknown & {readonly brand: unique symbol}
+export type TimeStamp = Date & {readonly brand: unique symbol}
+export type Blob = Uint8Array & {readonly brand: unique symbol}
+export type Dict<T extends RpcType = Any,S extends RpcType = Any> = Map<T,S> & {readonly brand: unique symbol}
+export type Tuple2<T extends RpcType = Any,X extends RpcType = Any> = [T,X] & {readonly brand: unique symbol}
+export type Tuple3<T extends RpcType = Any,R extends RpcType = Any,S extends RpcType = Any> = [T,R,S] & {readonly brand: unique symbol}
+export type Tuple4<T extends RpcType = Any,R extends RpcType = Any,S extends RpcType = Any, U extends RpcType = Any> = [T,R,S, U] & {readonly brand: unique symbol}
+export type Tuple5<T extends RpcType = Any,R extends RpcType = Any,S extends RpcType = Any ,U extends RpcType = Any,V extends RpcType = Any> = [T,R,S,U,V] & {readonly brand: unique symbol}
+export type List<T extends RpcType = Any> = Array<T> & {readonly brand: unique symbol}
 
-export type file = {
-	mimeType : str
-	name: str
-	contents: blob
-}
 
-export type RpcType = bool | int8 | uint8 | int16 | uint16 | int32 | uint32 | float32 | float64 | nil | str | error | map | tuple2 | tuple3 | tuple4 | tuple5 | list | dynamic | timestamp | blob | file
-
+export type RpcType = Bool | Int8 | Uint8 | Int16 | Uint16 | Int32 | Uint32 | Float32 | Float64 | Null | String | Err | Dict | Tuple2 | Tuple3 | Tuple4 | Tuple5 | List | Any | TimeStamp | Blob
