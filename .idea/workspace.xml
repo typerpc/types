@@ -22,7 +22,6 @@
     <list default="true" id="7940270b-98cf-492f-9ec6-41b33f6ae9ec" name="Default Changelist" comment="update version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +87,21 @@
       <option name="project" value="LOCAL" />
       <updated>1596653332401</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add 64 bit int types">
+      <created>1596673470635</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1596673470635</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update version">
+      <created>1596673542474</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1596673542474</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,10 +121,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update types to be branded" />
+    <MESSAGE value="add 64 bit int types" />
     <MESSAGE value="update version" />
     <option name="LAST_COMMIT_MESSAGE" value="update version" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2288" y="609" width="453" height="672" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1596673581970">
+      <screen x="1920" y="0" width="1200" height="1920" />
+    </state>
+    <state x="2288" y="609" width="453" height="672" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1920.1280/3120.0.1920.1080/1920.0.1200.1920@1920.0.1200.1920" timestamp="1596673581970" />
     <state x="2303" y="678" width="424" height="534" key="FileChooserDialogImpl" timestamp="1596653160964">
       <screen x="1920" y="0" width="1200" height="1920" />
     </state>
@@ -120,9 +138,9 @@
       <screen x="1920" y="0" width="1200" height="1920" />
     </state>
     <state x="2024" y="543" width="992" height="782" key="SettingsEditor/0.0.1920.1280/3840.0.1920.1080/1920.0.1200.1920@1920.0.1200.1920" timestamp="1596568150302" />
-    <state x="2115" y="644" width="800" height="576" key="Vcs.Push.Dialog.v2" timestamp="1596653337778">
+    <state x="2115" y="592" width="800" height="628" key="Vcs.Push.Dialog.v2" timestamp="1596673558016">
       <screen x="1920" y="0" width="1200" height="1920" />
     </state>
-    <state x="2115" y="644" width="800" height="576" key="Vcs.Push.Dialog.v2/0.0.1920.1280/3120.0.1920.1080/1920.0.1200.1920@1920.0.1200.1920" timestamp="1596653337778" />
+    <state x="2115" y="592" width="800" height="628" key="Vcs.Push.Dialog.v2/0.0.1920.1280/3120.0.1920.1080/1920.0.1200.1920@1920.0.1200.1920" timestamp="1596673558016" />
   </component>
 </project>
