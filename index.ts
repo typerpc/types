@@ -17,6 +17,7 @@ export namespace t {
 	export type Float32 = number & { readonly brand: unique symbol }
 	export type Float64 = number & { readonly brand: unique symbol }
 	export type Null = null & { readonly brand: unique symbol }
+	export type Unit = void & {readonly brand: unique symbol}
 	export type String = string & { readonly brand: unique symbol }
 	export type Err = {} & { readonly brand: unique symbol }
 	export type Any = unknown & { readonly brand: unique symbol }
@@ -56,7 +57,7 @@ export namespace t {
 		| TimeStamp
 		| Err
 
-	export type Primitive = Comparable | Null | Any | Blob
+	export type Primitive = Comparable | Null | Any | Blob | Unit
 
 	export type Container = Dict | Tuple2 | Tuple3 | Tuple4 | Tuple5 | List
 
