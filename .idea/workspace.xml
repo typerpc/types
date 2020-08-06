@@ -19,7 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7940270b-98cf-492f-9ec6-41b33f6ae9ec" name="Default Changelist" comment="add keyable type to restrict dict keys">
+    <list default="true" id="7940270b-98cf-492f-9ec6-41b33f6ae9ec" name="Default Changelist" comment="update version">
+      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596721986481</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update version">
+      <created>1596722012885</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1596722012885</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,11 +150,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update types to be branded" />
     <MESSAGE value="add 64 bit int types" />
-    <MESSAGE value="update version" />
     <MESSAGE value="fix types for codegen" />
     <MESSAGE value="update  version" />
     <MESSAGE value="add keyable type to restrict dict keys" />
-    <option name="LAST_COMMIT_MESSAGE" value="add keyable type to restrict dict keys" />
+    <MESSAGE value="update version" />
+    <option name="LAST_COMMIT_MESSAGE" value="update version" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2288" y="609" width="453" height="672" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1596673581970">
@@ -161,9 +169,9 @@
       <screen x="1920" y="0" width="1200" height="1920" />
     </state>
     <state x="2024" y="543" width="992" height="782" key="SettingsEditor/0.0.1920.1280/3840.0.1920.1080/1920.0.1200.1920@1920.0.1200.1920" timestamp="1596568150302" />
-    <state x="2115" y="540" width="800" height="680" key="Vcs.Push.Dialog.v2" timestamp="1596677477301">
+    <state x="2115" y="514" width="800" height="706" key="Vcs.Push.Dialog.v2" timestamp="1596722034936">
       <screen x="1920" y="0" width="1200" height="1920" />
     </state>
-    <state x="2115" y="540" width="800" height="680" key="Vcs.Push.Dialog.v2/0.0.1920.1280/3120.0.1920.1080/1920.0.1200.1920@1920.0.1200.1920" timestamp="1596677477301" />
+    <state x="2115" y="514" width="800" height="706" key="Vcs.Push.Dialog.v2/0.0.1920.1280/3120.0.1920.1080/1920.0.1200.1920@1920.0.1200.1920" timestamp="1596722034936" />
   </component>
 </project>
