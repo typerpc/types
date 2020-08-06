@@ -31,6 +31,8 @@ export type List<T extends RpcType = Any> = {elemType: T} & {readonly brand: uni
 // valid Dict keys
 export type Comparable = Bool | Int8 | Uint8 | Int16 | Uint16 | Int32 | Uint32 | Int64 | Uint64 | String | TimeStamp | Err
 
-export type RpcType = Comparable | Null |  Dict | Tuple2 | Tuple3 | Tuple4 | Tuple5 | List | Any | Blob
+export type Primitive = Comparable | Null | Any | Blob
 
+export type Container = Dict | Tuple2 | Tuple3 | Tuple4 | Tuple5 | List
 
+export type RpcType = Primitive | Container
