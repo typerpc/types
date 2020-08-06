@@ -29,7 +29,7 @@ export type Tuple5<T extends RpcType = Any,R extends RpcType = Any,S extends Rpc
 export type List<T extends RpcType = Any> = {elemType: T} & {readonly brand: unique symbol}
 
 // valid Dict keys
-export type Comparable = Bool | Int8 | Uint8 | Int16 | Uint16 | Int32 | Uint32 | Int64 | Uint64 | String | TimeStamp | Err
+export type Comparable = Bool | Int8 | Uint8 | Int16 | Uint16 | Int32 | Uint32 | Int64 | Float32| Float64 | Uint64 | String | TimeStamp | Err
 
 export type Primitive = Comparable | Null | Any | Blob
 
