@@ -21,7 +21,7 @@ export type Err = {} & {readonly brand: unique symbol}
 export type Any = unknown & {readonly brand: unique symbol}
 export type TimeStamp = Date & {readonly brand: unique symbol}
 export type Blob = Uint8Array & {readonly brand: unique symbol}
-export type Dict<T extends Comparable = String,S extends RpcType = Any> = {keyType: T, valueType: S} & {readonly brand: unique symbol}
+export type Dict<T extends Comparable = String,S extends RpcType = Any> = {keyType: T, valType: S} & {readonly brand: unique symbol}
 export type Tuple2<T extends RpcType = Any,X extends RpcType = Any> = {item1: T, item2: X} & {readonly brand: unique symbol}
 export type Tuple3<T extends RpcType = Any,R extends RpcType = Any,S extends RpcType = Any> = {item1: T, item2: R, item3: S} & {readonly brand: unique symbol}
 export type Tuple4<T extends RpcType = Any,R extends RpcType = Any,S extends RpcType = Any, U extends RpcType = Any> = {item1: T, item2: R, item3: S, item4: U} & {readonly brand: unique symbol}
