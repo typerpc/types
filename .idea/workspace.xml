@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7940270b-98cf-492f-9ec6-41b33f6ae9ec" name="Default Changelist" comment="update version">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
+    <list default="true" id="7940270b-98cf-492f-9ec6-41b33f6ae9ec" name="Default Changelist" comment="add float32 &amp;&amp; float64 to primitives">
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596724584788</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add float32 &amp;&amp; float64 to primitives">
+      <created>1596728082750</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1596728082750</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +183,8 @@
     <MESSAGE value="change keyable to Comparible" />
     <MESSAGE value="fix spelling" />
     <MESSAGE value="update version" />
-    <option name="LAST_COMMIT_MESSAGE" value="update version" />
+    <MESSAGE value="add float32 &amp;&amp; float64 to primitives" />
+    <option name="LAST_COMMIT_MESSAGE" value="add float32 &amp;&amp; float64 to primitives" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2288" y="609" width="453" height="672" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1596673581970">
@@ -192,9 +199,9 @@
       <screen x="1920" y="0" width="1200" height="1920" />
     </state>
     <state x="2024" y="543" width="992" height="782" key="SettingsEditor/0.0.1920.1280/3840.0.1920.1080/1920.0.1200.1920@1920.0.1200.1920" timestamp="1596568150302" />
-    <state x="2115" y="436" width="800" height="784" key="Vcs.Push.Dialog.v2" timestamp="1596724595476">
+    <state x="2115" y="410" width="800" height="810" key="Vcs.Push.Dialog.v2" timestamp="1596728091652">
       <screen x="1920" y="0" width="1200" height="1920" />
     </state>
-    <state x="2115" y="436" width="800" height="784" key="Vcs.Push.Dialog.v2/0.0.1920.1280/3120.0.1920.1080/1920.0.1200.1920@1920.0.1200.1920" timestamp="1596724595476" />
+    <state x="2115" y="410" width="800" height="810" key="Vcs.Push.Dialog.v2/0.0.1920.1280/3120.0.1920.1080/1920.0.1200.1920@1920.0.1200.1920" timestamp="1596728091652" />
   </component>
 </project>
