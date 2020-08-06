@@ -21,14 +21,16 @@ export type Err = {} & {readonly brand: unique symbol}
 export type Any = unknown & {readonly brand: unique symbol}
 export type TimeStamp = Date & {readonly brand: unique symbol}
 export type Blob = Uint8Array & {readonly brand: unique symbol}
-export type Dict<T extends RpcType = Any,S extends RpcType = Any> = {keyType: T, valueType: S} & {readonly brand: unique symbol}
+export type Dict<T extends Keyable = String,S extends RpcType = Any> = {keyType: T, valueType: S} & {readonly brand: unique symbol}
 export type Tuple2<T extends RpcType = Any,X extends RpcType = Any> = {item1: T, item2: X} & {readonly brand: unique symbol}
 export type Tuple3<T extends RpcType = Any,R extends RpcType = Any,S extends RpcType = Any> = {item1: T, item2: R, item3: S} & {readonly brand: unique symbol}
 export type Tuple4<T extends RpcType = Any,R extends RpcType = Any,S extends RpcType = Any, U extends RpcType = Any> = {item1: T, item2: R, item3: S, item4: U} & {readonly brand: unique symbol}
 export type Tuple5<T extends RpcType = Any,R extends RpcType = Any,S extends RpcType = Any ,U extends RpcType = Any,V extends RpcType = Any> = {item1: T, item2: R, item3: S, item4: U, item5: V} & {readonly brand: unique symbol}
 export type List<T extends RpcType = Any> = {elemType: T} & {readonly brand: unique symbol}
 
+// valid Dict keys
+export type Keyable = Bool | Int8 | Uint8 | Int16 | Uint16 | Int32 | Uint32 | Int64 | Uint64 | String | TimeStamp | Err
 
-export type RpcType = Bool | Int8 | Uint8 | Int16 | Uint16 | Int32 | Uint32 | Int64 | Uint64 | Float32 | Float64 | Null | String | Err | Dict | Tuple2 | Tuple3 | Tuple4 | Tuple5 | List | Any | TimeStamp | Blob
+export type RpcType = Keyable | Null |  Dict | Tuple2 | Tuple3 | Tuple4 | Tuple5 | List | Any | Blob
 
 
