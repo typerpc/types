@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7940270b-98cf-492f-9ec6-41b33f6ae9ec" name="Default Changelist" comment="update  version">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
+    <list default="true" id="7940270b-98cf-492f-9ec6-41b33f6ae9ec" name="Default Changelist" comment="add keyable type to restrict dict keys">
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596677468594</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add keyable type to restrict dict keys">
+      <created>1596721986481</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1596721986481</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,7 +145,8 @@
     <MESSAGE value="update version" />
     <MESSAGE value="fix types for codegen" />
     <MESSAGE value="update  version" />
-    <option name="LAST_COMMIT_MESSAGE" value="update  version" />
+    <MESSAGE value="add keyable type to restrict dict keys" />
+    <option name="LAST_COMMIT_MESSAGE" value="add keyable type to restrict dict keys" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2288" y="609" width="453" height="672" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1596673581970">
