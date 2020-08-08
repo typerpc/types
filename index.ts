@@ -3,10 +3,10 @@
 *
  */
 
-type typeRpcPrimitive = '444BFC103B7940ED250EB1DE280637AE6188EC27EFF6D967BB144596AD324741'
+type typeRpcPrimitive = {readonly brand: unique symbol}
 
-type nonComparablePrimitive = '1880D5056A82E9A5A323BE7107AAFD5AD78B3AD7109D87D565CB37D8ACAC30EA'
-type typeRpcBrand = 'F56DA3F115B165CD446AFD6BCE7BFA976F77E1AAE8A891CED137A259A7B50330A6CB774233B16AA2C9DB463FB4A6AA92C45218AE06C74423F038C7098780A239'
+type nonComparablePrimitive = {readonly brand: unique symbol}
+type typeRpcBrand = {readonly brand: unique symbol}
 export namespace t {
 	// Primitive types
 	import Keyable = rpc.Keyable
@@ -100,4 +100,3 @@ export namespace rpc {
 	export type Keyable = Comparable | Container
 	export type RpcType = Primitive | Container
 }
-
