@@ -39,7 +39,7 @@ export namespace t {
 	/*
 	* binary data. Uint8Array in Js. []byte in Go.
 	 */
-	export type blob = typeRpcBrand
+	export type blob = {data: any} & typeRpcBrand
 	export type Dict<T extends Comparable = str, S extends Keyable = dyn> =
 		{ keyType: T, valType: S } & typeRpcBrand
 	/*
