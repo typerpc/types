@@ -40,37 +40,37 @@ export namespace t {
 	* binary data. Uint8Array in Js. []byte in Go.
 	 */
 	export type blob = {data: any} & typeRpcBrand
-	export type Dict<T extends Comparable = str, S extends Keyable = dyn> =
+	export type Dict<T extends Comparable, S extends Keyable> =
 		{ keyType: T, valType: S } & typeRpcBrand
 	/*
 	* Do not use Tuples as method parameters when generating Go Code.
 	* Can only be used as return type.
 	 */
-	export type Tuple2<T extends Keyable = dyn, X extends Keyable = dyn> =
+	export type Tuple2<T extends Keyable, X extends Keyable> =
 		{ item1: T, item2: X }
 		& typeRpcBrand
 	/*
 	* Do not use Tuples as method parameters when generating Go Code.
 	* Can only be used as return type.
 	 */
-	export type Tuple3<T extends Keyable = dyn, R extends Keyable = dyn, S extends Keyable = dyn> =
+	export type Tuple3<T extends Keyable, R extends Keyable, S extends Keyable> =
 		{ item1: T, item2: R, item3: S }
 		& typeRpcBrand
 	/*
 	* Do not use Tuples as method parameters when generating Go Code.
 	* Can only be used as return type.
 	 */
-	export type Tuple4<T extends Keyable = dyn, R extends Keyable = dyn, S extends Keyable = dyn, U extends Keyable = dyn> =
+	export type Tuple4<T extends Keyable, R extends Keyable, S extends Keyable, U extends Keyable> =
 		{ item1: T, item2: R, item3: S, item4: U }
 		& typeRpcBrand
 	/*
 	* Do not use Tuples as method parameters when generating Go Code.
 	* Can only be used as return type.
 	 */
-	export type Tuple5<T extends Keyable = dyn, R extends Keyable = dyn, S extends Keyable = dyn, U extends Keyable  = dyn, V extends Keyable = dyn> =
+	export type Tuple5<T extends Keyable, R extends Keyable, S extends Keyable, U extends Keyable , V extends Keyable> =
 		{ item1: T, item2: R, item3: S, item4: U, item5: V }
 		& typeRpcBrand
-	export type List<T extends Keyable = dyn> = { dataType: T } & typeRpcBrand
+	export type List<T extends Keyable> = { dataType: T } & typeRpcBrand
 
 
 }
@@ -95,8 +95,9 @@ export namespace rpc {
 		| t.dyn
 
 	export type Primitive = Comparable | t.nil | t.unit
-	export type Container = t.Dict | t.Tuple2 | t.Tuple3 | t.Tuple4 | t.Tuple5 | t.List | t.blob
-	// valid generic types
+	export type Container<T extends Comparable = t.str, U extends Keyable = t.dyn> = t.Dict<T, U> | t.Tuple2<U, U> | t.Tuple3<U, U, U> | t.Tuple4<U, U, U, U> | t.Tuple5<U, U, U, U, U> | t.List<U> | t.blob
+
+	// valid generic type params
 	export type Keyable = Comparable | Container
 	export type RpcType = Primitive | Container
 }
