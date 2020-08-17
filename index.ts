@@ -94,8 +94,8 @@ export namespace rpc {
 		| t.err
 		| t.dyn
 
-	export type Primitive = Comparable | t.nil | t.unit
-	export type Container<T extends Comparable = t.str, U extends Keyable = t.dyn> = t.Dict<T, U> | t.Tuple2<U, U> | t.Tuple3<U, U, U> | t.Tuple4<U, U, U, U> | t.Tuple5<U, U, U, U, U> | t.List<U> | t.blob
+	export type Primitive = Comparable | t.nil | t.unit | t.blob
+	export type Container<T extends Comparable = t.str, U extends Keyable = t.dyn> = t.Dict<T, U> | t.Tuple2<U, U> | t.Tuple3<U, U, U> | t.Tuple4<U, U, U, U> | t.Tuple5<U, U, U, U, U> | t.List<U>
 
 	// valid generic type params
 	export type Keyable = Comparable | Container
