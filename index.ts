@@ -3,16 +3,17 @@
  *
  */
 
+/* eslint-disable @typescript-eslint/no-namespace */
 type typeRpcPrimitive = { readonly brand: unique symbol }
 
 type nonComparablePrimitive = { readonly brand: unique symbol }
-type typeRpcBrand = { readonly brand: unique symbol }
+type typeRpcContainer = { readonly brand: unique symbol }
 
-type messagable = typeRpcPrimitive | typeRpcBrand
+type messagable = typeRpcPrimitive | typeRpcContainer
 
 export namespace t {
     // Primitive types
-    import Keyable = types.Paramable
+    import Paramable = types.Paramable
     import Comparable = types.Comparable
     export type bool = typeRpcPrimitive
     export type int8 = typeRpcPrimitive
@@ -27,11 +28,11 @@ export namespace t {
     export type float64 = typeRpcPrimitive
     export type str = typeRpcPrimitive
     export type err = typeRpcPrimitive
+    export type timestamp = typeRpcPrimitive
     /**
      * any type in Ts/Rust, interface{} in go, dynamic in C#/Dart
      */
     export type dyn = typeRpcPrimitive
-    export type timestamp = typeRpcPrimitive
 
     // Primitives, but can't be used as keys for anything
     /**
@@ -42,48 +43,49 @@ export namespace t {
     /**
      * binary data. Uint8Array in Js. []byte in Go.
      */
-    export type blob = { data: unknown } & typeRpcBrand
-    export type Dict<T extends Comparable, S extends Keyable> = { keyType: T; valType: S } & typeRpcBrand
+    export type blob = { data: unknown } & typeRpcPrimitive
+    export type Dict<T extends Comparable, S extends Paramable> = { keyType: T; valType: S } & typeRpcContainer
     /**
      * Do not use Tuples as method parameters when generating Go Code.
      * Can only be used as return type.
      */
-    export type Tuple2<T extends Keyable, X extends Keyable> = { item1: T; item2: X } & typeRpcBrand
+    export type Tuple2<T extends Paramable, X extends Paramable> = { item1: T; item2: X } & typeRpcContainer
     /**
      * Do not use Tuples as method parameters when generating Go Code.
      * Can only be used as return type.
      */
-    export type Tuple3<T extends Keyable, R extends Keyable, S extends Keyable> = {
+    export type Tuple3<T extends Paramable, R extends Paramable, S extends Paramable> = {
         item1: T
         item2: R
         item3: S
-    } & typeRpcBrand
+    } & typeRpcContainer
     /**
      * Do not use Tuples as method parameters when generating Go Code.
      * Can only be used as return type.
      */
-    export type Tuple4<T extends Keyable, R extends Keyable, S extends Keyable, U extends Keyable> = {
+    export type Tuple4<T extends Paramable, R extends Paramable, S extends Paramable, U extends Paramable> = {
         item1: T
         item2: R
         item3: S
         item4: U
-    } & typeRpcBrand
+    } & typeRpcContainer
     /**
      * Do not use Tuples as method parameters when generating Go Code.
      * Can only be used as return type.
      */
     export type Tuple5<
-        T extends Keyable,
-        R extends Keyable,
-        S extends Keyable,
-        U extends Keyable,
-        V extends Keyable
-    > = { item1: T; item2: R; item3: S; item4: U; item5: V } & typeRpcBrand
-    export type List<T extends Keyable> = { dataType: T } & typeRpcBrand
+        T extends Paramable,
+        R extends Paramable,
+        S extends Paramable,
+        U extends Paramable,
+        V extends Paramable
+    > = { item1: T; item2: R; item3: S; item4: U; item5: V } & typeRpcContainer
+    export type List<T extends Paramable> = { dataType: T } & typeRpcContainer
 }
 
 export namespace rpc {
-    type Func = (...params: types.RpcType[]) => types.RpcType
+    import RpcType = types.RpcType
+    type Func = (...params: types.RpcType[]) => RpcType
 
     /**
      * Constructs a new typerpc Service definition.
@@ -117,19 +119,12 @@ export namespace types {
         | t.timestamp
         | t.err
         | t.dyn
+        | t.blob
 
     export type MsgProps = { [key: string]: messagable | rpc.Msg<{ [key: string]: messagable }> }
-    export type Primitive = Comparable | t.nil | t.unit | t.blob
-    export type Container<T extends Comparable = t.str, U extends Paramable = t.dyn> =
-        | t.Dict<T, U>
-        | t.Tuple2<U, U>
-        | t.Tuple3<U, U, U>
-        | t.Tuple4<U, U, U, U>
-        | t.Tuple5<U, U, U, U, U>
-        | t.List<U>
-        | rpc.Msg<MsgProps>
+    export type Primitive = Comparable | t.nil | t.unit
 
     // valid generic type params
-    export type Paramable = Comparable | Container
-    export type RpcType = Primitive | Container
+    export type Paramable = Comparable | typeRpcContainer | rpc.Msg<MsgProps>
+    export type RpcType = Primitive | typeRpcContainer | rpc.Msg<MsgProps>
 }
