@@ -9,7 +9,9 @@ type typeRpcPrimitive = { readonly brand: unique symbol }
 type nonComparablePrimitive = { readonly brand: unique symbol }
 type typeRpcContainer = { readonly brand: unique symbol }
 
-type messagable = typeRpcPrimitive | typeRpcContainer
+type primitiveOrUndefined = typeRpcPrimitive | undefined
+type containerOrUndefined = typeRpcContainer | undefined
+type messagable = primitiveOrUndefined | containerOrUndefined
 
 export namespace t {
     // Primitive types
@@ -85,7 +87,7 @@ export namespace t {
 
 export namespace rpc {
     import RpcType = types.RpcType
-    type Func = (...params: types.RpcType[]) => RpcType
+    type Func = (...params: (types.RpcType | undefined)[]) => RpcType
 
     /**
      * Constructs a new typerpc Service definition.
