@@ -14,9 +14,9 @@ type containerOrUndefined = typeRpcContainer | undefined
 type messagable = primitiveOrUndefined | containerOrUndefined
 
 export namespace t {
-    // Primitive types
-    import Paramable = types.Paramable
-    import Comparable = types.Comparable
+    // Primitive internal
+    import Paramable = internal.Paramable
+    import Comparable = internal.Comparable
     export type bool = typeRpcPrimitive
     export type int8 = typeRpcPrimitive
     export type uint8 = typeRpcPrimitive
@@ -89,13 +89,13 @@ export namespace t {
 }
 
 export namespace rpc {
-    import RpcType = types.RpcType
-    type Func = (...params: (types.RpcType | undefined)[]) => RpcType
+    import RpcType = internal.RpcType
+    type Func = (...params: (internal.RpcType | undefined)[]) => RpcType
 
     /**
      * Constructs a new typerpc Service definition.
-     * Only valid typerpc types can be used as parameters and return
-     * types.
+     * Only valid typerpc internal can be used as parameters and return
+     * internal.
      */
     export type Service<T extends { [key: string]: Func }> = T
 
@@ -103,10 +103,10 @@ export namespace rpc {
      * Used to construct a type alias a typerpc Type alias.
      * Types defined without using this type are not allowed.
      */
-    export type Msg<T extends types.MsgProps> = T
+    export type Msg<T extends internal.MsgProps> = T
 }
 
-export namespace types {
+export namespace internal {
     // valid Dict keys
     export type Comparable =
         | t.bool

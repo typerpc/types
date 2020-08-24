@@ -2,7 +2,7 @@
   "compilerOptions": {
     "noEmit": true,                        /* Do not emit outputs. */
     "strict": true,                           /* Enable dyn strict type-checking options. */
-    "strictFunctionTypes": false,           /* Enable strict checking of function types. */
+    "strictFunctionTypes": false,           /* Enable strict checking of function internal. */
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same File. */
   }
 }
