@@ -13,7 +13,7 @@ type primitiveOrUndefined = typeRpcPrimitive | undefined
 type containerOrUndefined = typeRpcContainer | undefined
 type messagable = primitiveOrUndefined | containerOrUndefined
 
-export namespace _ {
+export namespace $ {
     // Primitive internal
     import Paramable = internal.Paramable
     import Comparable = internal.Comparable
@@ -133,25 +133,25 @@ export namespace rpc {
 export namespace internal {
     // valid Dict keys
     export type Comparable =
-        | _.bool
-        | _.int8
-        | _.uint8
-        | _.int16
-        | _.uint16
-        | _.int32
-        | _.uint32
-        | _.int64
-        | _.float32
-        | _.float64
-        | _.uint64
-        | _.str
-        | _.timestamp
-        | _.err
-        | _.dyn
-        | _.blob
+        | $.bool
+        | $.int8
+        | $.uint8
+        | $.int16
+        | $.uint16
+        | $.int32
+        | $.uint32
+        | $.int64
+        | $.float32
+        | $.float64
+        | $.uint64
+        | $.str
+        | $.timestamp
+        | $.err
+        | $.dyn
+        | $.blob
 
     export type MsgProps = { [key: string]: messagable | rpc.Msg<{ [key: string]: messagable }> }
-    export type Primitive = Comparable | _.nil | _.unit
+    export type Primitive = Comparable | $.nil | $.unit
 
     // valid generic type params
     export type Paramable = Comparable | typeRpcContainer | rpc.Msg<MsgProps>
