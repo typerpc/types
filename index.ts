@@ -17,42 +17,51 @@ export namespace t {
     // Primitive internal
     import Paramable = internal.Paramable
     import Comparable = internal.Comparable
-    export type bool = typeRpcPrimitive
-    export type int8 = typeRpcPrimitive
-    export type uint8 = typeRpcPrimitive
-    export type int16 = typeRpcPrimitive
-    export type uint16 = typeRpcPrimitive
-    export type int32 = typeRpcPrimitive
-    export type uint32 = typeRpcPrimitive
-    export type int64 = typeRpcPrimitive
-    export type uint64 = typeRpcPrimitive
-    export type float32 = typeRpcPrimitive
-    export type float64 = typeRpcPrimitive
-    export type str = typeRpcPrimitive
-    export type err = typeRpcPrimitive
-    export type timestamp = typeRpcPrimitive
+    export type bool = { toString(): string } & typeRpcPrimitive
+    export type int8 = { toString(): string } & typeRpcPrimitive
+    export type uint8 = { toString(): string } & typeRpcPrimitive
+    export type int16 = { toString(): string } & typeRpcPrimitive
+    export type uint16 = { toString(): string } & typeRpcPrimitive
+    export type int32 = { toString(): string } & typeRpcPrimitive
+    export type uint32 = { toString(): string } & typeRpcPrimitive
+    export type int64 = { toString(): string } & typeRpcPrimitive
+    export type uint64 = { toString(): string } & typeRpcPrimitive
+    export type float32 = { toString(): string } & typeRpcPrimitive
+    export type float64 = { toString(): string } & typeRpcPrimitive
+    export type str = { toString(): string } & typeRpcPrimitive
+    export type err = { toString(): string } & typeRpcPrimitive
+    export type timestamp = { toString(): string } & typeRpcPrimitive
+    /**
+     * Uint8Array in Js. []byte in Go.
+     */
+    export type blob = { toString(): string } & typeRpcPrimitive
     /**
      * any type in Ts/Rust, interface{} in go, dynamic in C#/Dart
      */
-    export type dyn = typeRpcPrimitive
+    export type dyn = { toString(): string } & typeRpcPrimitive
 
     // Primitives, but can't be used as keys for anything
     /**
      * represents the absence of a value. void in C derived most languages.
      */
-    export type unit = nonComparablePrimitive
-    export type nil = nonComparablePrimitive
-    /**
-     * binary data. Uint8Array in Js. []byte in Go.
-     */
-    export type blob = { data: unknown } & typeRpcPrimitive
-    export type Dict<T extends Comparable, S extends Paramable> = Readonly<{ keyType: T; valType: S }> &
+    export type unit = { toString(): string } & nonComparablePrimitive
+    export type nil = { toString(): string } & nonComparablePrimitive
+    export type Dict<T extends Comparable, S extends Paramable> = Readonly<{
+        keyType: T
+        valType: S
+        toString(): string
+    }> &
         typeRpcContainer
     /**
      * Do not use Tuples as method parameters when generating Go Code.
      * Can only be used as return type.
      */
-    export type Tuple2<T extends Paramable, X extends Paramable> = Readonly<{ item1: T; item2: X }> & typeRpcContainer
+    export type Tuple2<T extends Paramable, X extends Paramable> = Readonly<{
+        item1: T
+        item2: X
+        toString(): string
+    }> &
+        typeRpcContainer
     /**
      * Do not use Tuples as method parameters when generating Go Code.
      * Can only be used as return type.
@@ -61,6 +70,7 @@ export namespace t {
         item1: T
         item2: R
         item3: S
+        toString(): string
     }> &
         typeRpcContainer
     /**
@@ -72,6 +82,7 @@ export namespace t {
         item2: R
         item3: S
         item4: U
+        toString(): string
     }> &
         typeRpcContainer
     /**
@@ -84,8 +95,21 @@ export namespace t {
         S extends Paramable,
         U extends Paramable,
         V extends Paramable
-    > = Readonly<{ item1: T; item2: R; item3: S; item4: U; item5: V }> & typeRpcContainer
-    export type List<T extends Paramable> = Readonly<{ dataType: T }> & typeRpcContainer
+    > = Readonly<{
+        item1: T
+        item2: R
+        item3: S
+        item4: U
+        item5: V
+        toString(): string
+    }> &
+        typeRpcContainer
+
+    export type List<T extends Paramable> = Readonly<{
+        dataType: T
+        toString(): string
+    }> &
+        typeRpcContainer
 }
 
 export namespace rpc {
