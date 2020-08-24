@@ -46,31 +46,34 @@ export namespace t {
      * binary data. Uint8Array in Js. []byte in Go.
      */
     export type blob = { data: unknown } & typeRpcPrimitive
-    export type Dict<T extends Comparable, S extends Paramable> = { keyType: T; valType: S } & typeRpcContainer
+    export type Dict<T extends Comparable, S extends Paramable> = Readonly<{ keyType: T; valType: S }> &
+        typeRpcContainer
     /**
      * Do not use Tuples as method parameters when generating Go Code.
      * Can only be used as return type.
      */
-    export type Tuple2<T extends Paramable, X extends Paramable> = { item1: T; item2: X } & typeRpcContainer
+    export type Tuple2<T extends Paramable, X extends Paramable> = Readonly<{ item1: T; item2: X }> & typeRpcContainer
     /**
      * Do not use Tuples as method parameters when generating Go Code.
      * Can only be used as return type.
      */
-    export type Tuple3<T extends Paramable, R extends Paramable, S extends Paramable> = {
+    export type Tuple3<T extends Paramable, R extends Paramable, S extends Paramable> = Readonly<{
         item1: T
         item2: R
         item3: S
-    } & typeRpcContainer
+    }> &
+        typeRpcContainer
     /**
      * Do not use Tuples as method parameters when generating Go Code.
      * Can only be used as return type.
      */
-    export type Tuple4<T extends Paramable, R extends Paramable, S extends Paramable, U extends Paramable> = {
+    export type Tuple4<T extends Paramable, R extends Paramable, S extends Paramable, U extends Paramable> = Readonly<{
         item1: T
         item2: R
         item3: S
         item4: U
-    } & typeRpcContainer
+    }> &
+        typeRpcContainer
     /**
      * Do not use Tuples as method parameters when generating Go Code.
      * Can only be used as return type.
@@ -81,8 +84,8 @@ export namespace t {
         S extends Paramable,
         U extends Paramable,
         V extends Paramable
-    > = { item1: T; item2: R; item3: S; item4: U; item5: V } & typeRpcContainer
-    export type List<T extends Paramable> = { dataType: T } & typeRpcContainer
+    > = Readonly<{ item1: T; item2: R; item3: S; item4: U; item5: V }> & typeRpcContainer
+    export type List<T extends Paramable> = Readonly<{ dataType: T }> & typeRpcContainer
 }
 
 export namespace rpc {
