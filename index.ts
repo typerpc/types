@@ -14,7 +14,7 @@ type containerOrUndefined = container | undefined
 type messagable = scalarOrUndefined | containerOrUndefined
 
 export namespace $ {
-    // Primitive internal
+    // Scalar internal
     import Paramable = internal.Paramable
     import Comparable = internal.Comparable
     export type bool = { type: 'bool'; toString(): string } & scalar
@@ -182,9 +182,9 @@ export namespace internal {
     export type QueryParamable = QueryParamableScalar | $.List<QueryParamableScalar>
 
     export type MsgProps = { [key: string]: messagable | rpc.Msg<{ [key: string]: messagable }> }
-    export type Primitive = Comparable | $.nil | $.unit
+    export type Scalar = Comparable | $.nil | $.unit
 
     // valid generic type params
     export type Paramable = Comparable | container | rpc.Msg<MsgProps>
-    export type RpcType = Primitive | container | rpc.Msg<MsgProps>
+    export type RpcType = Scalar | container | rpc.Msg<MsgProps>
 }
