@@ -17,35 +17,35 @@ export namespace $ {
     // Primitive internal
     import Paramable = internal.Paramable
     import Comparable = internal.Comparable
-    export type bool = 'bool' & { toString(): string } & scalar
-    export type int8 = 'int8' & { toString(): string } & scalar
-    export type uint8 = 'uint8' & { toString(): string } & scalar
-    export type int16 = 'int16' & { toString(): string } & scalar
-    export type uint16 = 'uint16' & { toString(): string } & scalar
-    export type int32 = 'int32' & { toString(): string } & scalar
-    export type uint32 = 'uint32' & { toString(): string } & scalar
-    export type int64 = 'int64' & { toString(): string } & scalar
-    export type uint64 = 'uint64' & { toString(): string } & scalar
-    export type float32 = 'float32' & { toString(): string } & scalar
-    export type float64 = 'float64' & { toString(): string } & scalar
-    export type str = 'str' & { toString(): string } & scalar
-    export type err = 'err' & { toString(): string } & scalar
-    export type timestamp = 'timestamp' & { toString(): string } & scalar
+    export type bool = { type: 'bool'; toString(): string } & scalar
+    export type int8 = { type: 'int8'; toString(): string } & scalar
+    export type uint8 = { type: 'uint8'; toString(): string } & scalar
+    export type int16 = { type: 'int16'; toString(): string } & scalar
+    export type uint16 = { type: 'uint16'; toString(): string } & scalar
+    export type int32 = { type: 'int32'; toString(): string } & scalar
+    export type uint32 = { type: 'uint32'; toString(): string } & scalar
+    export type int64 = { type: 'int64'; toString(): string } & scalar
+    export type uint64 = { type: 'uint64'; toString(): string } & scalar
+    export type float32 = { type: 'float32'; toString(): string } & scalar
+    export type float64 = { type: 'float64'; toString(): string } & scalar
+    export type str = { type: 'str'; toString(): string } & scalar
+    export type err = { type: 'err'; toString(): string } & scalar
+    export type timestamp = { type: 'timestamp'; toString(): string } & scalar
     /**
      * Uint8Array in Js. []byte in Go.
      */
-    export type blob = 'blob' & { toString(): string } & scalar
+    export type blob = { type: 'blob'; toString(): string } & scalar
     /**
      * any type in Ts/Rust, interface{} in go, dynamic in C#/Dart
      */
-    export type dyn = 'dyn' & { toString(): string } & scalar
+    export type dyn = { type: 'dyn'; toString(): string } & scalar
 
     // Primitives, but can't be used as keys for anything
     /**
      * represents the absence of a value. void in C derived most languages.
      */
-    export type unit = 'unit' & { toString(): string } & nonComparableScalar
-    export type nil = 'nil' & { toString(): string } & nonComparableScalar
+    export type unit = { type: 'unit'; toString(): string } & nonComparableScalar
+    export type nil = { type: 'nil'; toString(): string } & nonComparableScalar
     export type Dict<T extends Comparable, S extends Paramable> = Readonly<{
         keyType: T
         valType: S
@@ -175,7 +175,12 @@ export namespace internal {
         | $.float64
         | $.timestamp
 
+    /**
+     * Types that are allowed to be used in rpc.QuerySvc methods
+     * as parameters
+     */
     export type QueryParamable = QueryParamableScalar | $.List<QueryParamableScalar>
+
     export type MsgProps = { [key: string]: messagable | rpc.Msg<{ [key: string]: messagable }> }
     export type Primitive = Comparable | $.nil | $.unit
 
