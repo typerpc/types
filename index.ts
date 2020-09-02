@@ -159,6 +159,7 @@ export namespace internal {
         | $.float64
         | $.timestamp
 
+    export type Scalar = QueryParamableScalar | $.err | $.blob | $.dyn | $.unit | $.nil
     /**
      * Types that are allowed to be used in rpc.QuerySvc methods
      * as parameters
@@ -166,7 +167,6 @@ export namespace internal {
     export type QueryParamable = QueryParamableScalar | $.list<QueryParamableScalar>
 
     export type MsgProps = { [key: string]: messagable | rpc.Msg<{ [key: string]: messagable }> }
-    export type Scalar = scalar | returnableScalar | $.nil | $.unit
 
     // valid method, generic type params
     export type Paramable = scalar | container | rpc.Msg<MsgProps>
