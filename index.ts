@@ -170,5 +170,5 @@ export namespace internal {
 
     // valid method, generic type params
     export type Paramable = scalar | container | rpc.Msg<MsgProps>
-    export type RpcType = Scalar | container | returnableContainer | rpc.Msg<MsgProps>
+    export type RpcType = Scalar | container | Paramable | returnableContainer | rpc.Msg<MsgProps>
 }
