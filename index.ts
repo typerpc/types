@@ -5,18 +5,18 @@
 
 /* eslint-disable @typescript-eslint/no-namespace */
 type scalar = { readonly brand: unique symbol }
-
-type nonComparableScalar = { readonly brand: unique symbol }
 type container = { readonly brand: unique symbol }
+
+type returnableScalar = { readonly brand: unique symbol }
+type returnableContainer = { readonly brand: unique symbol }
 
 type scalarOrUndefined = scalar | undefined
 type containerOrUndefined = container | undefined
+
 type messagable = scalarOrUndefined | containerOrUndefined
 
 export namespace $ {
-    // Scalar internal
     import Paramable = internal.Paramable
-    import Comparable = internal.Comparable
     export type bool = { type: 'bool'; toString(): string } & scalar
     export type int8 = { type: 'int8'; toString(): string } & scalar
     export type uint8 = { type: 'uint8'; toString(): string } & scalar
@@ -43,53 +43,56 @@ export namespace $ {
     // Primitives, but can't be used as keys for anything
     /**
      * represents the absence of a value. void in C derived most languages.
+     * can only be used as a return type.
      */
-    export type unit = { type: 'unit'; toString(): string } & nonComparableScalar
-    export type nil = { type: 'nil'; toString(): string } & nonComparableScalar
-    export type Dict<T extends Comparable, S extends Paramable> = Readonly<{
+    export type unit = { type: 'unit'; toString(): string } & returnableScalar
+    /**
+     * null, can only be used as a return type.
+     */
+    export type nil = { type: 'nil'; toString(): string } & returnableScalar
+    /**
+     * map keys can only be $.str due to json restrictions
+     */
+    export type map<T extends $.str, S extends Paramable> = Readonly<{
         keyType: T
         valType: S
         toString(): string
     }> &
         container
     /**
-     * Do not use Tuples as method parameters when generating Go Code.
-     * Can only be used as return type.
+     * Can only be used as return type, due to golang type system.
      */
-    export type Tuple2<T extends Paramable, X extends Paramable> = Readonly<{
+    export type tuple2<T extends Paramable, X extends Paramable> = Readonly<{
         item1: T
         item2: X
         toString(): string
     }> &
-        container
+        returnableContainer
     /**
-     * Do not use Tuples as method parameters when generating Go Code.
-     * Can only be used as return type.
+     * Can only be used as return type, due to golang type system.
      */
-    export type Tuple3<T extends Paramable, R extends Paramable, S extends Paramable> = Readonly<{
+    export type tuple3<T extends Paramable, R extends Paramable, S extends Paramable> = Readonly<{
         item1: T
         item2: R
         item3: S
         toString(): string
     }> &
-        container
+        returnableContainer
     /**
-     * Do not use Tuples as method parameters when generating Go Code.
-     * Can only be used as return type.
+     * Can only be used as return type, due to golang type system.
      */
-    export type Tuple4<T extends Paramable, R extends Paramable, S extends Paramable, U extends Paramable> = Readonly<{
+    export type tuple4<T extends Paramable, R extends Paramable, S extends Paramable, U extends Paramable> = Readonly<{
         item1: T
         item2: R
         item3: S
         item4: U
         toString(): string
     }> &
-        container
+        returnableContainer
     /**
-     * Do not use Tuples as method parameters when generating Go Code.
-     * Can only be used as return type.
+     * Can only be used as return type, due to golang type system.
      */
-    export type Tuple5<
+    export type tuple5<
         T extends Paramable,
         R extends Paramable,
         S extends Paramable,
@@ -103,9 +106,9 @@ export namespace $ {
         item5: V
         toString(): string
     }> &
-        container
+        returnableContainer
 
-    export type List<T extends Paramable> = Readonly<{
+    export type list<T extends Paramable> = Readonly<{
         dataType: T
         toString(): string
     }> &
@@ -141,25 +144,6 @@ export namespace rpc {
 }
 
 export namespace internal {
-    // valid Dict keys
-    export type Comparable =
-        | $.bool
-        | $.int8
-        | $.uint8
-        | $.int16
-        | $.uint16
-        | $.int32
-        | $.uint32
-        | $.int64
-        | $.float32
-        | $.float64
-        | $.uint64
-        | $.str
-        | $.timestamp
-        | $.err
-        | $.dyn
-        | $.blob
-
     type QueryParamableScalar =
         | $.str
         | $.bool
@@ -179,12 +163,12 @@ export namespace internal {
      * Types that are allowed to be used in rpc.QuerySvc methods
      * as parameters
      */
-    export type QueryParamable = QueryParamableScalar | $.List<QueryParamableScalar>
+    export type QueryParamable = QueryParamableScalar | $.list<QueryParamableScalar>
 
     export type MsgProps = { [key: string]: messagable | rpc.Msg<{ [key: string]: messagable }> }
-    export type Scalar = Comparable | $.nil | $.unit
+    export type Scalar = scalar | returnableScalar | $.nil | $.unit
 
-    // valid generic type params
-    export type Paramable = Comparable | container | rpc.Msg<MsgProps>
-    export type RpcType = Scalar | container | rpc.Msg<MsgProps>
+    // valid method, generic type params
+    export type Paramable = scalar | container | rpc.Msg<MsgProps>
+    export type RpcType = Scalar | container | returnableContainer | rpc.Msg<MsgProps>
 }

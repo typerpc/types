@@ -1,6 +1,6 @@
 {
   "name": "@typerpc/types",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "description": "type system for typerpc framework",
   "main": "index.js",
   "scripts": {
