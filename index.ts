@@ -29,7 +29,7 @@ export namespace $ {
     export type float32 = { type: 'float32'; toString(): string } & scalar
     export type float64 = { type: 'float64'; toString(): string } & scalar
     export type str = { type: 'str'; toString(): string } & scalar
-    export type err = { type: 'err'; toString(): string } & scalar
+
     export type timestamp = { type: 'timestamp'; toString(): string } & scalar
     /**
      * Uint8Array in Js. []byte in Go.
@@ -159,7 +159,7 @@ export namespace internal {
         | $.float64
         | $.timestamp
 
-    export type Scalar = QueryParamableScalar | $.err | $.blob | $.dyn | $.unit | $.nil
+    export type Scalar = QueryParamableScalar | $.blob | $.dyn | $.unit | $.nil
     /**
      * Types that are allowed to be used in rpc.QuerySvc methods
      * as parameters
